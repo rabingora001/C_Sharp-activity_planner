@@ -1,0 +1,35 @@
+@using DojoActivity.Models
+@model Activity
+
+<h2>Dojo Activity Center</h2> <span style="color:red">Welcome @ViewBag.firstname @ViewBag.lastname! </span><br><br>
+<a href="/home">Home</a> | <a href="/logout">Log off</a>
+<hr>
+<div>
+    <form asp-action="CreateMethod" asp-controller="DojoActivity" method="post">
+
+        <span asp-validation-for="Title" style="color:red"></span><br>
+        <P>Title: <input type="text"asp-for="Title" ></P>
+
+        <span asp-validation-for="Date" style="color:red"></span><br>
+        <P>Date: <input type="Date" asp-for="Date"></P>
+
+        <span asp-validation-for="Time" style="color:red"></span><br>
+        <P>Time: <input type="Time" asp-for="Time"></P>
+
+        <span asp-validation-for="Duration" style="color:red"></span><br>
+        <P>
+            Duration: <input type="number" asp-for="Duration"> 
+            
+            <select asp-for="DurationForm">
+                <option value="Days">Days</option>
+                <option value="Hours">Hours</option>
+                <option value="Minutes">Minutes</option>
+            </select>
+        </P>
+
+        <span asp-validation-for="Description" style="color:red"></span><br>
+        <P>Description: <input type="text" asp-for="Description"></P>
+
+        <button type="submit">Create Activity</button>
+    </form>
+</div>

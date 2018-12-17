@@ -1,0 +1,24 @@
+@using DojoActivity.Models;
+@model Activity;
+
+<h2>Dojo Activity Center</h2>
+<hr>
+<a href="/home">Home</a> | <a href="/logout">Log off</a>
+<hr>
+<h2>@ViewBag.ShowOne.Title</h2>
+
+<h3 style="color:grey"> Event Coordinator: SomeOne</h3>
+
+<h3 style="color:grey"> Date: @ViewBag.ShowOne.Date.ToString("MM/dd/yyyy")</h3>
+<h3 style="color:grey"> Date: @ViewBag.ShowOne.Time.ToShortTimeString()</h3>
+<h3 style="color:grey"> Description: @ViewBag.ShowOne.Description</h3>
+
+<h4 style="color:gray">Participants:</h4>
+@{ 
+    <ul style="color:gray">
+        @foreach (var h in @ViewBag.ShowOne.participant)
+        {
+            <li>@h.User.FirstName @h.User.LastName</li>
+        }
+    </ul>
+}
